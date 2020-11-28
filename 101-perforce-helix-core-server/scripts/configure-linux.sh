@@ -162,6 +162,7 @@ configure_helix() {
     curl -k -s -O https://swarm.workshop.perforce.com/downloads/guest/perforce_software/helix-installer/main/src/reset_sdp.sh
 
     chmod +x reset_sdp.sh
+    sed -i 's/Config\['\''CaseSensitive'\''\]="1"/Config['\''CaseSensitive'\'']="0"/I' reset_sdp.sh
     ./reset_sdp.sh -fast -no_sd > reset_sdp.log 2>&1
 
     cp /p4/common/bin/p4 /usr/local/bin/
